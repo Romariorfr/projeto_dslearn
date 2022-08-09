@@ -35,7 +35,7 @@ Marcar/desmarcar melhor resposta (somente autor do tópico e instrutor)
 
 
 # Modelo conceitual do projeto:
-<img height="720" width="1280" src="https://github.com/Romariorfr/projeto_dslearn/blob/master/backend/assets/modelo-conceitual-com-forum.png" alt="Sorry"/>
+<img height="1080" width="1920" src="https://github.com/Romariorfr/projeto_dslearn/blob/master/backend/assets/modelo-conceitual-com-forum.png" alt="Sorry"/>
 
 <a href="https://www.figma.com/file/p8Hawp1w5g0pCZ3h3ZsCUd/DSLearn-Bootcamp">Figma do DSLearn :link:</a><br>
 

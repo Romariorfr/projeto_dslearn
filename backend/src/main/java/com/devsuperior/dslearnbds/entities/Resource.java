@@ -3,7 +3,6 @@ package com.devsuperior.dslearnbds.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,33 +13,30 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.devsuperior.dslearnbds.entities.enuns.ResourceType;
+import com.devsuperior.dslearnbds.entities.enums.ResourceType;
 
 @Entity
 @Table(name = "tb_resource")
 public class Resource implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
 	private String title;
 	private String description;
 	private Integer position;
 	private String imgUri;
 	private ResourceType type;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "offer_id")
 	private Offer offer;
 
-	
 	@OneToMany(mappedBy = "resource")
 	private List<Section> sections = new ArrayList<>();
-
+	
 	public Resource() {
-
 	}
 
 	public Resource(Long id, String title, String description, Integer position, String imgUri, ResourceType type,
@@ -113,7 +109,10 @@ public class Resource implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
 	}
 
 	@Override
@@ -125,7 +124,11 @@ public class Resource implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Resource other = (Resource) obj;
-		return Objects.equals(id, other.id);
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
-
 }
